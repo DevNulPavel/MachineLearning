@@ -24,10 +24,16 @@ class PartyNN(object):
 
     # Метод прямого прохода нейронной сети
     def predict(self, inputs):
+        # Выполняем скалярное перемножение весов первого слоя и входных значений
         inputs_1 = np.dot(self.weights_0_1, inputs)
+        # Получаем значения пороговых функций для каждого значения, полученного из весов -
+        # результат - это значение выхода из первого слоя
         outputs_1 = self.sigmoid_mapper(inputs_1)
-        
+
+        # Выполняем скалярное перемножение весов второго слоя и выходных значений первого слоя
         inputs_2 = np.dot(self.weights_1_2, outputs_1)
+        # Получаем значения пороговых функций для каждого значения, полученного из весов -
+        # результат - это значение выхода из второго слоя
         outputs_2 = self.sigmoid_mapper(inputs_2)
         return outputs_2
 
@@ -65,7 +71,7 @@ def main():
 
     # epochs = 5000
     # learning_rate = 0.05
-    epochs = 6000
+    epochs = 50000
     learning_rate = 0.08
 
     network = PartyNN(learning_rate=learning_rate)
@@ -78,8 +84,9 @@ def main():
             inputs_.append(np.array(input_stat))
             correct_predictions.append(np.array(correct_predict))
 
-        train_loss = mse(network.predict(np.array(inputs_).T), np.array(correct_predictions))
-        sys.stdout.write("Progress: {}, Training loss: {}\n".format(str(100 * e / float(epochs))[:4], str(train_loss)[:5]))
+        if e % 1000 == 0:
+            train_loss = mse(network.predict(np.array(inputs_).T), np.array(correct_predictions))
+            sys.stdout.write("Progress: {}, Training loss: {}\n".format(str(100 * e / float(epochs))[:4], str(train_loss)[:6]))
 
     for input_stat, correct_predict in train:
         print("For input: {} the prediction is: {}, expected: {}".format(
