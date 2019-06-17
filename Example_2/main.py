@@ -82,7 +82,7 @@ def main():
     # epochs = 5000
     # learning_rate = 0.05
     epochs = 50000
-    learning_rate = 0.08
+    learning_rate = 0.2
 
     # Создаем сеть
     network = PartyNN(learning_rate=learning_rate)
@@ -112,15 +112,17 @@ def main():
 
             # Выводим текущую ошибку
             progress = str(100 * e / float(epochs))[:4]
-            sys.stdout.write("Progress: {}, training loss: {}\n".format(progress, str(train_loss)[:6]))
+            sys.stdout.write("Progress: {}, training loss: {}\n".format(progress, str(train_loss)))
 
+    print("\n")
     for input_stat, correct_predict in train:
         print("For input: {} the prediction is: {}, expected: {}".format(
             str(input_stat),
             str(network.predict(np.array(input_stat))),
-            str(correct_predict == 1)))
+            str(correct_predict)))
 
     # Выведем веса нашей обученной сети
+    print("\n")
     print("Layer 0->1 weights:\n{}\n".format(str(network.weights_0_1)))
     print("Layer 1->2 weights:\n{}\n".format(str(network.weights_1_2)))
 
