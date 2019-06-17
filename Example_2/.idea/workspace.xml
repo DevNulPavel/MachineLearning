@@ -15,11 +15,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="88" column="124" selection-start-line="88" selection-start-column="124" selection-end-line="88" selection-end-column="124" />
+            <state relative-caret-position="533">
+              <caret line="124" column="32" selection-start-line="124" selection-start-column="32" selection-end-line="124" selection-end-column="32" />
               <folding>
                 <element signature="e#90#108#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2019.1/python_stubs/-1199943126/numpy/random/mtrand.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="1600" column="4" selection-start-line="1600" selection-start-column="4" selection-end-line="1600" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -49,9 +58,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="209" />
+    <option name="x" value="313" />
     <option name="y" value="23" />
-    <option name="width" value="1530" />
+    <option name="width" value="1553" />
     <option name="height" value="988" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -121,16 +130,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="209" y="23" width="1530" height="988" extended-state="0" />
-    <editor active="true" />
+    <frame x="313" y="23" width="1553" height="988" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22796553" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22454308" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21205357" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.26339287" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22544643" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.25558037" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -143,23 +151,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>90</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore" />
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2019.1/python_stubs/-1199943126/numpy/random/mtrand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="1600" column="4" selection-start-line="1600" selection-start-column="4" selection-end-line="1600" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="88" column="124" selection-start-line="88" selection-start-column="124" selection-end-line="88" selection-end-column="124" />
+        <state relative-caret-position="533">
+          <caret line="124" column="32" selection-start-line="124" selection-start-column="32" selection-end-line="124" selection-end-column="32" />
           <folding>
             <element signature="e#90#108#0" expanded="true" />
           </folding>
