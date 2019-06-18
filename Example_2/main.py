@@ -47,23 +47,61 @@ class PartyNN(object):
         return outputs_2
 
     # Метод тренировки нейронной сети
-    def train(self, inputs, expected_predict):     
+    def train(self, inputs, expected_predict):
+        ################################################################
+        # Выполняем прямой проход для получения текущего значения
+        ################################################################
+        # Умножаем текущие входные значения и текущие веса перехода на первый слой
         inputs_1 = np.dot(self.weights_0_1, inputs)
+        # Выход из первого слоя, который мы получаем, применяя функцию сигмоида
         outputs_1 = self.sigmoid_mapper(inputs_1)
-        
+
+        # Умножаем выход из первого слоя на веса первого слоя
         inputs_2 = np.dot(self.weights_1_2, outputs_1)
+        # Получаем выход из 2 слоя, применяя функцию сигмоида
         outputs_2 = self.sigmoid_mapper(inputs_2)
+
+        # Текущий результат предсказания
         actual_predict = outputs_2[0]
-        
-        error_layer_2 = np.array([actual_predict - expected_predict])
+
+        ################################################################
+        # Выполняем обратный проход для получения текущего значения
+        ################################################################
+
+        # Получаем разницу между ожидаемым значением и предсказанием
+        predict_error = actual_predict - expected_predict
+
+        # Конвертируем в массив эту разницу
+        error_layer_2 = np.array([predict_error])
+
+        # Получаем значение градиента,
+        # это производная от функции сигмоида: sigmoid(x) * (1 - sigmoid(x))
+        # то есть - функция скорости изменения значения?
         gradient_layer_2 = actual_predict * (1 - actual_predict)
-        weights_delta_layer_2 = error_layer_2 * gradient_layer_2  
-        self.weights_1_2 -= (np.dot(weights_delta_layer_2, outputs_1.reshape(1, len(outputs_1)))) * self.learning_rate
-        
+
+        # Получаем значение дельты веса, ошибка * производную
+        weights_delta_layer_2 = error_layer_2 * gradient_layer_2
+
+        # Корректируем значение дельты методом градиентного спуска
+        # новый_вес = старый_вес - старое_значение * дельту * скорость_спуска
+        outputs_1_array = outputs_1.reshape(1, len(outputs_1))
+        self.weights_1_2 = self.weights_1_2 - (np.dot(weights_delta_layer_2, outputs_1_array)) * self.learning_rate
+
+        # Получаем ошибку перехода к первому уровню из второго в виде ошибки весов
         error_layer_1 = weights_delta_layer_2 * self.weights_1_2
+
+        # Получаем значение градиента,
+        # это производная от функции сигмоида: sigmoid(x) * (1 - sigmoid(x))
+        # то есть - функция скорости изменения значения?
         gradient_layer_1 = outputs_1 * (1 - outputs_1)
+
+        # Получаем значение дельты веса, ошибка * производную
         weights_delta_layer_1 = error_layer_1 * gradient_layer_1
-        self.weights_0_1 -= np.dot(inputs.reshape(len(inputs), 1), weights_delta_layer_1).T  * self.learning_rate
+
+        # Корректируем значение дельты методом градиентного спуска
+        # новый_вес = старый_вес - старое_значение * дельту * скорость_спуска
+        inputs_array = inputs.reshape(len(inputs), 1)
+        self.weights_0_1 = self.weights_0_1 - np.dot(inputs_array, weights_delta_layer_1).T  * self.learning_rate
 
 
 def main():
