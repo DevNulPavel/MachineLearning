@@ -1,0 +1,14 @@
+brew uninstall flac portaudio
+brew install flac portaudio
+
+http://www.cdotson.com/2019/03/installing-pyaudio-on-macos/
+https://github.com/LetsPlayNow/Speech_AI/tree/ee74ed491da6afe83598ac2a9b6abe8bdd445d83
+https://habr.com/ru/post/323570/
+
+export C_INCLUDE_PATH=/usr/local/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
+
+set -g -x C_INCLUDE_PATH /usr/local/include $C_INCLUDE_PATH
+set -g -x LIBRARY_PATH /usr/local/lib $LIBRARY_PATH
+
+pipenv install

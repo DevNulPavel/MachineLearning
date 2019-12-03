@@ -1,0 +1,20 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+speechrecognition = "==3.8.1"
+pyaudio = "==0.2.11"
+chatterbot = "==1.0.5"
+gtts = "==2.0.4"
+pygame = "==1.9.6"
+
+[requires]
+python_version = "3.7"
+
+[build_ext]
+include_dirs = "/usr/local/include"
+library_dirs = "/usr/local/lib"
